@@ -1,5 +1,6 @@
 import {getNotes} from '@/app/lib/queris'
 import { AddNote, UpdateNotes, DeleteNote } from './lib/actions';
+import type {Note} from '@/app/lib/types'
 
 export default async function Home() {
 
@@ -19,7 +20,7 @@ export default async function Home() {
         {notes.length === 0 ? (
           <li>No hay notas aún</li>
         ) : (
-          notes.map((nota: any) => (
+          notes.map((nota: Note) => (
             <li key={nota.id}>
               <form action={async()=>{
                 'use server';

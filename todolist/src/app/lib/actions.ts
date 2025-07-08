@@ -2,7 +2,6 @@
 
 import sql from '@/app/lib/database';
 import { revalidatePath } from 'next/cache';
-import { relative } from 'path';
 
 export async function AddNote(formData: FormData){
     const title = formData.get('title') as string;

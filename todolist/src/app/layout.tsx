@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
+import '@/app/css/footer.css'
 
 export const metadata: Metadata = {
   title: "To Do list",

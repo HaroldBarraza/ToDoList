@@ -1,0 +1,122 @@
+.realizado{
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+.checkbox {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #555;
+  border-radius: 4px;
+  position: relative;
+  margin-right: 8px;
+  background-color: rgb(0, 0, 0);
+  transition: background-color 0.2s ease;
+}
+
+.checkbox.checked {
+  background-color: #28a745;
+}
+
+.checkbox.checked::after {
+  content: "✓";
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  top: -2px;
+  left: 4px;
+  font-size: 16px;
+}
+body{
+    background-color: blanchedalmond;
+}
+.texto-completado {
+  text-decoration: line-through;
+  color: gray;
+  opacity: 0.7;
+}
+
+
+
+.container {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  justify-content: space-between;
+}
+
+.notas {
+  flex: 1;
+}
+
+.form-agenda {
+  flex: 1;
+  background-color: #fffbe6;
+  padding: 2rem;
+  border: 2px solid #d4a373;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-family: 'Georgia', serif;
+}
+
+.form-agenda h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-agenda input[type="text"] {
+  width: 100%;
+  padding: 0.5rem 0;
+  margin-bottom: 1.5rem;
+  border: none;
+  border-bottom: 2px solid #d4a373;
+  background-color: transparent;
+  outline: none;
+  font-size: 1rem;
+  font-family: 'Georgia', serif;
+  color: #333;
+  transition: border-color 0.3s;
+}
+
+.form-agenda input[type="text"]:focus {
+  border-bottom: 2px solid #b17c4a;
+}
+
+.form-agenda button {
+  padding: 0.6rem 1.2rem;
+  background-color: #d4a373;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.form-agenda button:hover {
+  background-color: #b17c4a;
+}
+
+.texto-completado {
+  text-decoration: line-through;
+  color: gray;
+  opacity: 0.7;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 1rem;
+}
+
+button {
+  margin-left: 0.5rem;
+}
+
+.title{
+    border-style: none;
+    background-color: #28a745;
+}

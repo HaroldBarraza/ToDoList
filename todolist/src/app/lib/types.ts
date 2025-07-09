@@ -6,3 +6,7 @@ export type Note = {
   category_id: number | null;
   category_name?: string;
 };
+export type Categories = {
+  id: number;
+  name: string;
+};

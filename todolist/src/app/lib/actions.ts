@@ -2,8 +2,8 @@
 
 import sql from '@/app/lib/database';
 import { revalidatePath } from 'next/cache';
-
-
+//CRUD
+//addNote
 export async function AddNote(formData: FormData) {
   const title = formData.get('title') as string;
   const text = formData.get('text') as string;
@@ -14,12 +14,12 @@ export async function AddNote(formData: FormData) {
     VALUES (${title}, ${text}, false, ${category_id});
   `;
 }
-
+//Update Notes
 export async function UpdateNotes(id: number, newstate: boolean){
     await sql`UPDATE tasks SET state = ${newstate} WHERE id = ${id}`;
     revalidatePath('/');
 }
-
+//Delete notes
 export async function DeleteNote(id:number) {
     await sql`DELETE FROM tasks WHERE id = ${id}`;
     revalidatePath('/')

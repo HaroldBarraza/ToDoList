@@ -11,11 +11,12 @@ export default async function Home() {
 
   return (
     <div className='container' >
+      //FORM TO ADD A NOTE
       <div className='form-agenda' >
           <form action={AddNote}>
-            <p>Título de la nota</p>
-            <input type="text" name='title' placeholder='Nombre de la nota' required />
-            <input type="text" name='text' placeholder='Agregue las notas que deseas' required />
+            <p>Add Note</p>
+            <input type="text" name='title' placeholder='Title of the note' required />
+            <input type="text" name='text' placeholder='Description' required />
             <select name="category_id" required>
               <option value="">Select category</option>
                 {categories.map((cat: Categories) => (
@@ -28,35 +29,42 @@ export default async function Home() {
 
 
       <div className='notas'>
-        <h2>Notas existentes</h2>
+        <h2>Notes</h2>
 
         {Object.keys(notesByCategory).length === 0 ? (
-          <p>No hay notas aún</p>
+          <p>Any Notes</p>
         ) : (
           Object.entries(notesByCategory).map(([categoryName, notes]) => (
             <div key={categoryName}>
               <h3 className="categoria-titulo">{categoryName}</h3>
               <ul>
                 {notes.map((nota: Note) => (
-                  <li key={nota.id}>
-                    <form action={async () => {
-                      'use server';
-                      await UpdateNotes(nota.id, !nota.state);
-                    }}>
-                      <span className={nota.state ? 'texto-completado' : ''}>
-                        <strong>{nota.title}</strong>: {nota.text}
-                      </span>
-                      <button type='submit'>{nota.state ? '✔️' : '❌'}</button>
-                    </form>
-
-                    {/* Delete note */}
-                    <form action={async () => {
-                      'use server';
-                      await DeleteNote(nota.id);
-                    }}>
-                      <button type='submit'>🗑️</button>
-                    </form>
-                  </li>
+                  <li key={nota.id} className="nota-item">
+                  <div className="nota-contenido">
+                    <div className="nota-izquierda">
+                      <form action={async () => {
+                        'use server';
+                        await UpdateNotes(nota.id, !nota.state);
+                      }}>
+                        <button type='submit' className='boton-check'>{nota.state ? '✔️' : '❌'}</button>
+                      </form>
+                    </div>
+                    
+                    <div className="nota-texto">
+                      <strong>{nota.title}</strong>
+                      <p className={nota.state ? 'texto-completado' : ''}>{nota.text}</p>
+                    </div>
+                    
+                    <div className="nota-derecha">
+                      <form action={async () => {
+                        'use server';
+                        await DeleteNote(nota.id);
+                      }}>
+                        <button type='submit' className='boton-delete'>🗑️</button>
+                      </form>
+                    </div>
+                  </div>
+                </li>
                 ))}
               </ul>
             </div>

@@ -120,3 +120,66 @@ button {
     border-style: none;
     background-color: #28a745;
 }
+.nota-item {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1rem;
+  background-color: #fffef4;
+  display: flex;
+  flex-direction: column;
+}
+
+.nota-contenido {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nota-izquierda,
+.nota-derecha {
+  flex-shrink: 0;
+}
+
+.nota-izquierda button,
+.nota-derecha button {
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nota-texto {
+  flex-grow: 1;
+  padding: 0 1rem;
+}
+
+.nota-texto strong {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+select {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  border: 2px solid #d4a373;
+  border-radius: 8px;
+  background-color: #fffef8;
+  font-size: 1rem;
+  color: #333;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  appearance: none;
+  cursor: pointer;
+}
+
+select:focus {
+  border-color: #bc6c25;
+  box-shadow: 0 0 0 2px rgba(188, 108, 37, 0.3);
+}
+
+select option {
+  background-color: #fff;
+  color: #333;
+  padding: 0.5rem;
+}

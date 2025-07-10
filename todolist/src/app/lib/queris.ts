@@ -1,6 +1,6 @@
 import sql from "@/app/lib/database";
 import type { Note } from "@/app/lib/types";
-
+//get the notes from the database
 export async function getNotes(): Promise<Note[]> {
   const res = await sql`
     SELECT tasks.id, tasks.title, tasks.text, tasks.state, tasks.category_id, categories.name as category_name
@@ -10,6 +10,8 @@ export async function getNotes(): Promise<Note[]> {
   `;
   return res as unknown as Note[];
 }
+
+//Get notes from the database by category.
 export async function getNotesGroupedByCategory() {
   const res = await sql`
     SELECT 
@@ -21,7 +23,7 @@ export async function getNotesGroupedByCategory() {
     ORDER BY categories.name, tasks.id DESC
   `;
 
-  // Agrupar resultados por categoría
+  // Group results by category
   const grouped: { [key: string]: Note[] } = {};
 
   for (const row of res) {

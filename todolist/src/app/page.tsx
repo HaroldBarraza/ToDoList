@@ -11,7 +11,6 @@ export default async function Home() {
 
   return (
     <div className='container' >
-      //FORM TO ADD A NOTE
       <div className='form-agenda' >
           <form action={AddNote}>
             <p>Add Note</p>
